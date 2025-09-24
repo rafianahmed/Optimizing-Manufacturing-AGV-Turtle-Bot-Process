@@ -1,5 +1,4 @@
-# Robotics-Final-Project-Optimizing-Manufacturing-Process-at-ISYSE-KAIST
-
+Robotics-Final-Project-Optimizing-Manufacturing-Process-at-ISYSE-KAIST
 Introduction:
 In collaboration with my team at ISYSE, KAIST, I spearheaded a transformative project in robotics aimed at revolutionizing the manufacturing process. Tasked with streamlining the production of 'Product Z,' a critical automotive panel component, our endeavor involved the strategic utilization of a mobile robot to navigate through various stages of production seamlessly.
 
