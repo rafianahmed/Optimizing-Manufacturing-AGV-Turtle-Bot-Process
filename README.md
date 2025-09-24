@@ -1,6 +1,6 @@
 Robotics-Final-Project-Optimizing-Manufacturing-Process-at-ISYSE-KAIST
 Introduction:
-In collaboration with my team at ISYSE, KAIST, I spearheaded a transformative project in robotics aimed at revolutionizing the manufacturing process. Tasked with streamlining the production of 'Product Z,' a critical automotive panel component, our endeavor involved the strategic utilization of a mobile robot to navigate through various stages of production seamlessly.
+I spearheaded a transformative project in robotics aimed at revolutionizing the manufacturing process. Tasked with streamlining the production of 'Product Z,' a critical automotive panel component, our endeavor involved the strategic utilization of a mobile robot to navigate through various stages of production seamlessly.
 
 Project Scope:
 The project centered on the meticulous orchestration of manufacturing operations, from raw material processing to final product delivery. Leveraging cutting-edge robotics technology and ROS (Robot Operating System), we meticulously mapped out the shop floor layout and devised a comprehensive strategy to optimize workflow efficiency.
