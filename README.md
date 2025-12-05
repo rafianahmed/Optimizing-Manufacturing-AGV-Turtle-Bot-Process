@@ -1,115 +1,102 @@
-Overview
+# Robotics Final Project: Optimizing Manufacturing Process at ISYSE (KAIST)
 
-This project simulates and optimizes a small-scale manufacturing line for “Product Z” (an automotive panel component) using a mobile robot that autonomously navigates between production stations. The robot transports parts across machines, completes the workflow for five (5) Product Z units, and reports real-time status during execution.
+## Overview
+This project optimizes a simulated manufacturing workflow for **Product Z** (an automotive panel component) using a **mobile robot** that autonomously navigates between production stations. The robot completes the full process for **five (5) Product Z units**, provides real-time execution feedback, and generates key manufacturing performance metrics to identify bottlenecks and improvement opportunities.
 
-Using ROS and autonomous navigation, we modeled the shop-floor layout, planned routes between stations, and measured production performance to identify inefficiencies and bottlenecks.
+---
 
-Problem Statement
+## Project Scope
+- Orchestrate an end-to-end manufacturing flow: **raw material → Part A/Part B processes → Product Z → delivery**
+- Model the shop-floor layout and station locations
+- Enable autonomous navigation between stations with ROS navigation tooling
+- Log events and calculate production KPIs for system-level analysis
 
-Traditional manufacturing flow for Product Z involved unnecessary movement, idle time between stations, and limited visibility into performance. The goal was to redesign the process with robotics automation to improve throughput and provide measurable operational insights.
+---
 
-System Workflow (Manufacturing Process)
+## Key Objectives
+### 1) Efficient Operation
+- Program robot motion to manufacture **5 units** of Product Z
+- Ensure smooth transitions between stations
+- Provide real-time feedback (robot position/state)
 
-End-to-end process:
+### 2) Performance Metrics & Bottleneck Analysis
+Computed and reported:
+- **Average Cycle Time** (Part A)
+- **Average Cycle Time** (Part B)
+- **Average Cycle Time** (Product Z)
+- **Throughput Rate** (per station/machine)
+- **Work In Progress (WIP)**
+- **Total Completion Time** (makespan)
+- **Machine Utilization**
+- **Bottleneck identification** + targeted improvement suggestions
 
-Raw material processing
+### 3) Documentation & Presentation
+- Comprehensive work report (process + results)
+- Demonstration video of the automated manufacturing run
+- 10-minute presentation covering methodology, implementation, and outcomes
 
-Part A & Part B production (station-based)
+---
 
-Assembly/processing into Product Z
+## System Workflow
+1. Robot starts at a home/initial location
+2. Navigates to station(s) for Part A production
+3. Navigates to station(s) for Part B production
+4. Navigates to assembly/processing station for Product Z
+5. Delivers finished Product Z to final delivery/drop-off area
+6. Repeats until **5 Product Z** units are completed
 
-Final delivery/drop-off
+---
 
-Repeat until 5 finished units are produced
+## Tech Stack
+### Robotics / Middleware
+- **ROS (Robot Operating System)**
 
-The robot autonomously traveled between stations, ensuring consistent transport behavior and reducing manual handoffs.
+### Navigation & Motion Planning
+- **move_base** (action library for goal-based navigation)
+- ROS Navigation Stack (localization + global/local planning)
 
-Key Features
+### Mapping / Layout
+- Shop-floor mapping (ROS-compatible map)
+- Station coordinates / navigation goals
 
-Autonomous Navigation: robot moves station-to-station using ROS navigation tools
+### Programming
+- ROS nodes and scripts to:
+  - send navigation goals
+  - control station-to-station logic
+  - log timestamps/events
+  - compute performance metrics  
+*(commonly implemented in Python and/or C++ depending on the course setup)*
 
-Execution for 5 Units: completes the full manufacturing loop for five Product Z units
+### Data & Metrics
+- Cycle time, throughput, WIP, utilization calculations based on logged events
 
-Real-Time Feedback: live updates on robot position/state while running
+---
 
-Factory Metrics & Bottleneck Detection: computed operational KPIs to evaluate system performance
+## Results (What This Project Demonstrates)
+- Autonomous robotic transport across a multi-stage manufacturing line
+- Repeatable production execution for a fixed batch size (5 units)
+- Quantitative KPIs for evaluating efficiency and identifying bottlenecks
+- Practical application of robotics + data analysis to manufacturing optimization
 
-Deliverables: full work report, demo video, and a 10-minute presentation
+---
 
-Performance Metrics (Measured & Reported)
+## Future Improvements
+- Dynamic scheduling based on queue length / WIP
+- Adaptive routing to reduce congestion and idle time
+- Multi-robot coordination for higher throughput
+- Live KPI dashboard (real-time monitoring)
 
-Average Cycle Time — Part A
+---
 
-Average Cycle Time — Part B
+## Repository Structure (Suggested)
+> Update this section to match your actual repo folders.
 
-Average Cycle Time — Product Z
-
-Throughput Rate — per machine/station
-
-Work In Progress (WIP)
-
-Total Completion Time (makespan)
-
-Machine Utilization
-
-Bottleneck station identification + improvement suggestions
-
-Tech Stack
-Robotics / Middleware
-
-ROS (Robot Operating System)
-
-Navigation & Motion
-
-move_base (action library) for goal-based navigation
-
-ROS navigation stack (localization + path planning)
-
-Mapping / Environment
-
-Shop-floor layout mapping and navigation configuration (ROS-compatible map + station coordinates)
-
-Programming
-
-ROS nodes/scripts to control robot behavior and synchronize stage transitions
-(language depends on your implementation: typically Python or C++)
-
-Analysis & Reporting
-
-Production metrics computation (cycle time, throughput, WIP, utilization)
-
-Documentation + presentation + demo video
-
-How It Works (High-Level)
-
-Map & configure the shop floor (stations, routes, navigation parameters)
-
-Send navigation goals to the robot (station A → station B → …)
-
-Trigger manufacturing steps at each station (simulated or timed operations)
-
-Log timestamps and events for every step
-
-Compute KPIs and identify bottlenecks based on observed performance
-
-Results & Impact
-
-This project demonstrated how mobile robotics can:
-
-improve workflow consistency,
-
-reduce operator transport overhead,
-
-increase visibility through production KPIs,
-
-and support decisions on where to optimize (bottleneck-driven improvements).
-
-Future Improvements
-
-Dynamic scheduling (prioritize stations based on queue/WIP)
-
-Multi-robot coordination for higher throughput
-
-Smarter bottleneck mitigation (adaptive routing, load balancing)
-
-Real-time dashboard for live KPI tracking
+```bash
+.
+├── src/                  # ROS packages / nodes
+├── launch/               # launch files to run simulation/system
+├── config/               # navigation params, station coordinates
+├── maps/                 # shop-floor maps
+├── scripts/              # logging + KPI computation scripts
+├── report/               # final report
+└── media/                # demo video / screenshots
