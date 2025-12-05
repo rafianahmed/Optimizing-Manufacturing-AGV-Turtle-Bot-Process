@@ -1,24 +1,115 @@
-Robotics-Final-Project-Optimizing-Manufacturing-Process-at-ISYSE-KAIST
-Introduction:
-I spearheaded a transformative project in robotics aimed at revolutionizing the manufacturing process. Tasked with streamlining the production of 'Product Z,' a critical automotive panel component, our endeavor involved the strategic utilization of a mobile robot to navigate through various stages of production seamlessly.
+Overview
 
-Project Scope:
-The project centered on the meticulous orchestration of manufacturing operations, from raw material processing to final product delivery. Leveraging cutting-edge robotics technology and ROS (Robot Operating System), we meticulously mapped out the shop floor layout and devised a comprehensive strategy to optimize workflow efficiency.
+This project simulates and optimizes a small-scale manufacturing line for “Product Z” (an automotive panel component) using a mobile robot that autonomously navigates between production stations. The robot transports parts across machines, completes the workflow for five (5) Product Z units, and reports real-time status during execution.
 
-Key Objectives:
-Our primary objectives encompassed not only the successful execution of the manufacturing process but also the rigorous analysis of key performance metrics to drive continuous improvement. These objectives included:
+Using ROS and autonomous navigation, we modeled the shop-floor layout, planned routes between stations, and measured production performance to identify inefficiencies and bottlenecks.
 
-Efficient Operation: Programmed the robot motion to facilitate the manufacturing of five 'Product Z' units, ensuring smooth transition between stations while providing real-time feedback on the robot's position.
+Problem Statement
 
-Performance Metrics: Calculated essential parameters such as Average Cycle Time for 'Part A' and 'Part B,' Average Cycle Time for 'Product Z,' Throughput Rate for each machine, Work in Progress (WIP), Total Completion Time, Machine Utilization, and identified bottlenecks for targeted enhancements.
+Traditional manufacturing flow for Product Z involved unnecessary movement, idle time between stations, and limited visibility into performance. The goal was to redesign the process with robotics automation to improve throughput and provide measurable operational insights.
 
-Documentation and Presentation: Produced a comprehensive work report detailing our process optimization strategies, along with a captivating video showcasing the manufacturing process. Additionally, delivered a dynamic 10-minute presentation elucidating our project methodology and outcomes.
+System Workflow (Manufacturing Process)
 
-Innovative Approach:
-Our approach involved a meticulous blend of software development, robotics engineering, and data analysis. By harnessing the power of ROS packages and the move_base action library, we orchestrated the seamless movement of the robot throughout the manufacturing floor, maximizing operational efficiency.
+End-to-end process:
 
-Impact and Future Prospects:
-Our project not only showcased our technical prowess but also underscored our commitment to driving tangible outcomes in real-world settings. Moving forward, we envision further refinements to our manufacturing process, leveraging insights gleaned from performance metrics to continuously enhance system efficiency and productivity.
+Raw material processing
 
-Conclusion:
-The Robotics Final Project at ISYSE, KAIST represents a testament to our team's ingenuity, collaboration, and dedication to excellence. By reimagining traditional manufacturing paradigms through the lens of robotics and automation, we've laid the groundwork for a future where innovation and efficiency converge seamlessly.
+Part A & Part B production (station-based)
+
+Assembly/processing into Product Z
+
+Final delivery/drop-off
+
+Repeat until 5 finished units are produced
+
+The robot autonomously traveled between stations, ensuring consistent transport behavior and reducing manual handoffs.
+
+Key Features
+
+Autonomous Navigation: robot moves station-to-station using ROS navigation tools
+
+Execution for 5 Units: completes the full manufacturing loop for five Product Z units
+
+Real-Time Feedback: live updates on robot position/state while running
+
+Factory Metrics & Bottleneck Detection: computed operational KPIs to evaluate system performance
+
+Deliverables: full work report, demo video, and a 10-minute presentation
+
+Performance Metrics (Measured & Reported)
+
+Average Cycle Time — Part A
+
+Average Cycle Time — Part B
+
+Average Cycle Time — Product Z
+
+Throughput Rate — per machine/station
+
+Work In Progress (WIP)
+
+Total Completion Time (makespan)
+
+Machine Utilization
+
+Bottleneck station identification + improvement suggestions
+
+Tech Stack
+Robotics / Middleware
+
+ROS (Robot Operating System)
+
+Navigation & Motion
+
+move_base (action library) for goal-based navigation
+
+ROS navigation stack (localization + path planning)
+
+Mapping / Environment
+
+Shop-floor layout mapping and navigation configuration (ROS-compatible map + station coordinates)
+
+Programming
+
+ROS nodes/scripts to control robot behavior and synchronize stage transitions
+(language depends on your implementation: typically Python or C++)
+
+Analysis & Reporting
+
+Production metrics computation (cycle time, throughput, WIP, utilization)
+
+Documentation + presentation + demo video
+
+How It Works (High-Level)
+
+Map & configure the shop floor (stations, routes, navigation parameters)
+
+Send navigation goals to the robot (station A → station B → …)
+
+Trigger manufacturing steps at each station (simulated or timed operations)
+
+Log timestamps and events for every step
+
+Compute KPIs and identify bottlenecks based on observed performance
+
+Results & Impact
+
+This project demonstrated how mobile robotics can:
+
+improve workflow consistency,
+
+reduce operator transport overhead,
+
+increase visibility through production KPIs,
+
+and support decisions on where to optimize (bottleneck-driven improvements).
+
+Future Improvements
+
+Dynamic scheduling (prioritize stations based on queue/WIP)
+
+Multi-robot coordination for higher throughput
+
+Smarter bottleneck mitigation (adaptive routing, load balancing)
+
+Real-time dashboard for live KPI tracking
